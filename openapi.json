@@ -1,0 +1,949 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "https://csapi-gamma.dev.claroshop.com",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/address-ms/v1/addresses/{ulid}/default": {
+            "put": {
+                "tags": [
+                    "address-controller"
+                ],
+                "operationId": "setDefaultAddress",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponseAddress"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            }
+        },
+        "/address-ms/v1/addresses/{ulid}": {
+            "get": {
+                "tags": [
+                    "address-controller"
+                ],
+                "summary": "Obtener una dirección por su ULID",
+                "description": "Obtiene la dirección con el ULID especificado, si el usuario autenticado es el propietario de la dirección.",
+                "operationId": "getAddressByUlid",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponseAddress"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "address-controller"
+                ],
+                "operationId": "updateAddress",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddressRequestDto"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponseAddress"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "address-controller"
+                ],
+                "operationId": "deleteAddress",
+                "parameters": [
+                    {
+                        "name": "ulid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            }
+        },
+        "/address-ms/v0/addresses/{id}/default": {
+            "put": {
+                "tags": [
+                    "address-v-0-controller"
+                ],
+                "operationId": "setDefaultAddress_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddressV0ResponseAddressV0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            }
+        },
+        "/address-ms/v0/addresses/{id}": {
+            "get": {
+                "tags": [
+                    "address-v-0-controller"
+                ],
+                "summary": "Obtener una dirección por su ID",
+                "description": "Obtiene la dirección con el ID númerico, si el usuario autenticado es el propietario de la dirección.",
+                "operationId": "getAddressById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddressV0ResponseAddressV0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "address-v-0-controller"
+                ],
+                "operationId": "updateAddress_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddressV0Request"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddressV0ResponseAddressV0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "address-v-0-controller"
+                ],
+                "operationId": "deleteAddress_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddressV0ResponseAddressV0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            }
+        },
+        "/address-ms/v1/addresses": {
+            "get": {
+                "tags": [
+                    "address-controller"
+                ],
+                "operationId": "getAllAddresses",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponseListAddress"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "address-controller"
+                ],
+                "operationId": "createAddress",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddressRequestDto"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponseAddress"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            }
+        },
+        "/address-ms/v0/addresses": {
+            "get": {
+                "tags": [
+                    "address-v-0-controller"
+                ],
+                "operationId": "getAllAddresses_1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddressV0ResponseListAddressV0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "address-v-0-controller"
+                ],
+                "operationId": "createAddress_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddressV0Request"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AddressV0ResponseAddressV0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            }
+        },
+        "/address-ms/v1/addresses/default": {
+            "get": {
+                "tags": [
+                    "address-controller"
+                ],
+                "operationId": "getDefaultAddress",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiResponseAddress"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer-key": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "ulid": {
+                        "type": "string",
+                        "description": "Identificador único de la dirección ULID char(36)",
+                        "readOnly": true,
+                        "example": "01F9Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Nombre del destinatario",
+                        "example": "MARÍA"
+                    },
+                    "firstLastname": {
+                        "type": "string",
+                        "description": "Primer apellido del destinatario",
+                        "example": "PÉREZ"
+                    },
+                    "secondLastname": {
+                        "type": "string",
+                        "description": "Segundo apellido del destinatario",
+                        "example": "DE LOS SANTOS"
+                    },
+                    "street": {
+                        "type": "string",
+                        "description": "Calle",
+                        "example": "Lago Zúrich"
+                    },
+                    "outdoorNumber": {
+                        "type": "string",
+                        "description": "Número exterior",
+                        "example": "245"
+                    },
+                    "interiorNumber": {
+                        "type": "string",
+                        "description": "Número interior",
+                        "example": "Edificio Presa Falcón, Piso 7"
+                    },
+                    "betweenStreets": {
+                        "type": "string",
+                        "description": "Entre calles",
+                        "example": "Presa Falcón y Blvd. Miguel de Cervantes Saavedra"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Estado",
+                        "example": "Ciudad de México"
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "Ciudad",
+                        "example": "Ciudad de México"
+                    },
+                    "township": {
+                        "type": "string",
+                        "description": "Municipio",
+                        "example": "Miguel Hidalgo"
+                    },
+                    "neighborhood": {
+                        "type": "string",
+                        "description": "Colonia",
+                        "example": "Ampliación Granada"
+                    },
+                    "zip": {
+                        "type": "string",
+                        "description": "Código postal",
+                        "example": "11529"
+                    },
+                    "reference": {
+                        "type": "string",
+                        "description": "Referencia",
+                        "example": "Frente a la tienda de abarrotes"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "Teléfono",
+                        "example": "5555555555"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Correo electrónico",
+                        "readOnly": true,
+                        "example": "ejemplo@claroshop.com"
+                    },
+                    "default": {
+                        "type": "boolean"
+                    },
+                    "complete": {
+                        "type": "boolean"
+                    },
+                    "backward": {
+                        "type": "boolean"
+                    },
+                    "external_id": {
+                        "type": "integer",
+                        "description": "Identificador externo de la dirección para retrocompatibilidad",
+                        "format": "int64",
+                        "readOnly": true,
+                        "example": 0
+                    }
+                },
+                "description": "Objeto de respuesta de una dirección"
+            },
+            "ApiResponseAddress": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "metadata": {
+                        "$ref": "#/components/schemas/MetaData"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/Address"
+                    }
+                }
+            },
+            "MetaData": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "is_error": {
+                        "type": "boolean"
+                    },
+                    "http_status": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "AddressRequestDto": {
+                "required": [
+                    "fullName",
+                    "outdoorNumber",
+                    "phone",
+                    "street"
+                ],
+                "type": "object",
+                "properties": {
+                    "fullName": {
+                        "type": "string",
+                        "description": "Nombre completo del destinatrio",
+                        "example": "María de la Cruz Pérez de los Santos"
+                    },
+                    "street": {
+                        "type": "string",
+                        "description": "Calle",
+                        "example": "Lago Zúrich"
+                    },
+                    "outdoorNumber": {
+                        "type": "string",
+                        "description": "Número exterior",
+                        "example": "245"
+                    },
+                    "interiorNumber": {
+                        "type": "string",
+                        "description": "Número interior",
+                        "example": "Edificio Presa Falcón, Piso 7"
+                    },
+                    "betweenStreets": {
+                        "type": "string",
+                        "description": "Entre calles",
+                        "example": "Presa Falcón y Blvd. Miguel de Cervantes Saavedra"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Estado",
+                        "example": "Ciudad de México"
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "Ciudad",
+                        "example": "Ciudad de México"
+                    },
+                    "township": {
+                        "type": "string",
+                        "description": "Municipio",
+                        "example": "Miguel Hidalgo"
+                    },
+                    "neighborhood": {
+                        "type": "string",
+                        "description": "Colonia",
+                        "example": "Ampliación Granada"
+                    },
+                    "zip": {
+                        "maxLength": 5,
+                        "minLength": 5,
+                        "type": "string",
+                        "description": "Código postal",
+                        "example": "11529"
+                    },
+                    "reference": {
+                        "type": "string",
+                        "description": "Referencia",
+                        "example": "Dentro de Plaza Carso"
+                    },
+                    "phone": {
+                        "maxLength": 10,
+                        "minLength": 10,
+                        "pattern": "^[0-9]*$",
+                        "type": "string",
+                        "description": "Teléfono",
+                        "example": "5555555555"
+                    },
+                    "external_id": {
+                        "type": "integer",
+                        "description": "Identificador externo de la dirección para retrocompatibilidad",
+                        "format": "int64",
+                        "example": 0
+                    }
+                },
+                "description": "Objeto de solicitud para la creación o actualización de una dirección"
+            },
+            "AddressV0": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "ulid": {
+                        "type": "string",
+                        "description": "Identificador único de la dirección ULID char(36)",
+                        "readOnly": true,
+                        "example": "01F9Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3"
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "description": "Nombre Completo",
+                        "example": "MARÍA DE LA CRUZ PÉREZ DE LOS SANTOS"
+                    },
+                    "direccion": {
+                        "type": "string",
+                        "description": "Dirección",
+                        "example": "Lago Zúrich 245 Piso 17"
+                    },
+                    "calle": {
+                        "type": "string",
+                        "description": "Calle",
+                        "example": "Lago Zúrich"
+                    },
+                    "numeroExterior": {
+                        "type": "string",
+                        "description": "Número exterior",
+                        "example": "245"
+                    },
+                    "numeroInterior": {
+                        "type": "string",
+                        "description": "Número interior",
+                        "example": "Piso 17"
+                    },
+                    "entreCalles": {
+                        "type": "string",
+                        "description": "Entre calles",
+                        "example": "Presa Falcón y Blvd. Miguel de Cervantes Saavedra"
+                    },
+                    "referencias": {
+                        "type": "string",
+                        "description": "Referencia",
+                        "example": "Dentro de Plaza Carso"
+                    },
+                    "pais": {
+                        "type": "string",
+                        "description": "País",
+                        "example": "México"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "description": "Estado",
+                        "example": "Ciudad de México"
+                    },
+                    "ciudad": {
+                        "type": "string",
+                        "description": "Ciudad",
+                        "example": "Ciudad de México"
+                    },
+                    "municipio": {
+                        "type": "string",
+                        "description": "Municipio",
+                        "example": "Miguel Hidalgo"
+                    },
+                    "colonia": {
+                        "type": "string",
+                        "description": "Colonia",
+                        "example": "Ampliación Granada"
+                    },
+                    "codigoPostal": {
+                        "type": "string",
+                        "description": "Código postal",
+                        "example": "11529"
+                    },
+                    "telefono": {
+                        "type": "string",
+                        "description": "Teléfono",
+                        "example": "5555555555"
+                    },
+                    "accesibilidad": {
+                        "type": "boolean",
+                        "description": "Dirección predeterminada",
+                        "readOnly": true,
+                        "example": true
+                    },
+                    "nombres": {
+                        "type": "string",
+                        "description": "Nombres",
+                        "example": "MARÍA DE LA CRUZ"
+                    },
+                    "apellidoPaterno": {
+                        "type": "string",
+                        "description": "Primer Apellido",
+                        "example": "PÉREZ"
+                    },
+                    "apellidoMaterno": {
+                        "type": "string",
+                        "description": "Segundo Apellido",
+                        "example": "DE LOS SANTOS"
+                    }
+                },
+                "description": "Objeto de respuesta de una dirección"
+            },
+            "AddressV0DataAddressV0": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/AddressV0"
+                    },
+                    "code": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "msg": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AddressV0ResponseAddressV0": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "metadata": {
+                        "$ref": "#/components/schemas/MetaData"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/AddressV0DataAddressV0"
+                    }
+                }
+            },
+            "AddressV0Request": {
+                "required": [
+                    "calle",
+                    "nombre",
+                    "numeroExterior",
+                    "telefono"
+                ],
+                "type": "object",
+                "properties": {
+                    "nombre": {
+                        "type": "string",
+                        "description": "Nombre completo del destinatrio",
+                        "example": "María de la Cruz Pérez de los Santos"
+                    },
+                    "calle": {
+                        "type": "string",
+                        "description": "Calle",
+                        "example": "Lago Zúrich"
+                    },
+                    "numeroExterior": {
+                        "type": "string",
+                        "description": "Número exterior",
+                        "example": "245"
+                    },
+                    "numeroInterior": {
+                        "type": "string",
+                        "description": "Número interior",
+                        "example": "Piso 17"
+                    },
+                    "entreCalles": {
+                        "type": "string",
+                        "description": "Entre calles",
+                        "example": "Presa Falcón y Blvd. Miguel de Cervantes Saavedra"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "description": "Estado",
+                        "example": "Ciudad de México"
+                    },
+                    "ciudad": {
+                        "type": "string",
+                        "description": "Ciudad",
+                        "example": "Ciudad de México"
+                    },
+                    "municipio": {
+                        "type": "string",
+                        "description": "Municipio",
+                        "example": "Miguel Hidalgo"
+                    },
+                    "colonia": {
+                        "type": "string",
+                        "description": "Colonia",
+                        "example": "Ampliación Granada"
+                    },
+                    "codigoPostal": {
+                        "maxLength": 5,
+                        "minLength": 5,
+                        "type": "string",
+                        "description": "Código postal",
+                        "example": "11529"
+                    },
+                    "referencias": {
+                        "type": "string",
+                        "description": "Referencia",
+                        "example": "Dentro de Plaza Carso"
+                    },
+                    "telefono": {
+                        "maxLength": 10,
+                        "minLength": 10,
+                        "pattern": "^[0-9]*$",
+                        "type": "string",
+                        "description": "Teléfono",
+                        "example": "5555555555"
+                    }
+                },
+                "description": "Objeto de solicitud para la creación o actualización de una dirección"
+            },
+            "ApiResponseListAddress": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "metadata": {
+                        "$ref": "#/components/schemas/MetaData"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Address"
+                        }
+                    }
+                }
+            },
+            "AddressV0DataListAddressV0": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AddressV0"
+                        }
+                    },
+                    "code": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "msg": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AddressV0ResponseListAddressV0": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "metadata": {
+                        "$ref": "#/components/schemas/MetaData"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/AddressV0DataListAddressV0"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearer-key": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
